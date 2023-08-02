@@ -1,1 +1,5 @@
 #Colocar archivos binarios, videos u otro que no deba estar en el repositorio
+**/__pycache__
+**/venv
+.vscode
+**/sql_database.db
