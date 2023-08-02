@@ -39,3 +39,8 @@ footer {
 .social-icons a {
     margin-right: 10px;
 }
+
+#Capa_2{
+    border: 1px solid red;
+    width: 50%;
+}
