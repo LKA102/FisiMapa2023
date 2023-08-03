@@ -395,7 +395,7 @@ function recorridoDijsktra(){
     linea.setAttribute('y1', coordenadas[arreglo[i-1]][1]);
     linea.setAttribute('x2', coordenadas[arreglo[i]][0]);
     linea.setAttribute('y2', coordenadas[arreglo[i]][1]);
-    linea.setAttribute('style', 'stroke: blue; stroke-width: 2');
+    linea.setAttribute('style', 'stroke: green; stroke-width: 3.5');
 
     // Agregar una clase a la línea para identificarla como parte del recorrido
     linea.classList.add('recorrido-linea');
