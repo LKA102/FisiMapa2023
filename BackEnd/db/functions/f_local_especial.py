@@ -6,5 +6,5 @@ def listar_locales_especiales(db: Session):
     return locales_especiales
 
 def devolver_local_especial(nombre: str, db:Session):
-    local_especial = db.query(Local_M).filter(Local_M.nombrePabellon == nombre).first()
+    local_especial = db.query(Local_M).filter(Local_M.nombreLocal == nombre).first()
     return local_especial

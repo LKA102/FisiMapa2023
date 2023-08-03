@@ -6,5 +6,5 @@ def listar_salones_especiales(db: Session):
     return salones_especiales
 
 def devolver_salon_especial(nombre: str, db:Session):
-    salon_especial = db.query(Salon_M).filter(Salon_M.nombrePabellon == nombre).first()
+    salon_especial = db.query(Salon_M).filter(Salon_M.nombreSalon == nombre).first()
     return salon_especial

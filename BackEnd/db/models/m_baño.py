@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, Text, ForeignKey
 from sqlalchemy.orm import relationship
 from db.session import Base
 
-class Baños_M(Base):
+class Baño_M(Base):
     __tablename__ = "baños"
     idBaño = Column(Integer, primary_key=True, index=True, autoincrement=True)
     nombreBaño = Column(String)

@@ -6,5 +6,5 @@ def listar_laboratorios(db: Session):
     return laboratorios
 
 def devolver_laboratorio(nombre: str, db:Session):
-    laboratorio = db.query(Laboratorio_M).filter(Laboratorio_M.nombrePabellon == nombre).first()
+    laboratorio = db.query(Laboratorio_M).filter(Laboratorio_M.nombreLaboratorio == nombre).first()
     return laboratorio

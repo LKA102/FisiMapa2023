@@ -7,4 +7,7 @@ class Pabellon_M(Base):
     idPabellon = Column(Integer, primary_key=True, index=True, autoincrement=True)
     nombrePabellon = Column(String)
     aulas = relationship('Aula_M', back_populates='pabellon')
+    oficinas = relationship('Oficina_M', back_populates='pabellon')
+    laboratorios = relationship('Laboratorio_M', back_populates='pabellon')
+    baños = relationship('Baño_M', back_populates='pabellon')
     
