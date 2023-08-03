@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, ForeignKey, Date, Time
+from sqlalchemy import Column, Integer, String, Text, ForeignKey, Time
 from sqlalchemy.orm import relationship
 from db.session import Base
 
@@ -8,8 +8,8 @@ class Oficina_M(Base):
     nombreOficina = Column(String)
     horarioInicioActividades = Column(Time)
     horarioFinActividades = Column(Time)
-    diaInicioActividades = Column(Date)
-    diaFinActividades = Column(Date)
+    diaInicioActividades = Column(String)
+    diaFinActividades = Column(String)
     encargado = Column(String)
     capacidad = Column(Integer)
     descripcion = Column(Text)

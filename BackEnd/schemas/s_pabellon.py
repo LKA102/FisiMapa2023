@@ -13,7 +13,7 @@ class Pabellon_S(PabellonBase):
     idPabellon: int
     
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class PabellonActualizar(BaseModel):
     nombrePabellon: Optional[str]

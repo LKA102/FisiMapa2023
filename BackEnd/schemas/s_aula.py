@@ -16,7 +16,7 @@ class Aula(AulaBase):
     idPabellon: int
     
     class Config:
-        orm_mode = True
+        from_attributes = True
         
 class AulaActualizar(AulaBase):
     piso: int

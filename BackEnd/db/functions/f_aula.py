@@ -19,10 +19,27 @@ def crear_nueva_aula(aula: AulaCrear, db: Session):
     
 def listar_aulas(db: Session):
     aulas = db.query(Aula_M).all()
-    return aulas
+    aulas_json = []
+    for aula in aulas:
+        aula_dict = {
+            'idAula': aula.idAula,
+            'nombreAula': aula.nombreAula,
+            'capacidad': aula.capacidad,
+            'descripcion': aula.descripcion,
+            'estado': aula.estado,
+            'piso': aula.estado,
+            'idPabellon': aula.idPabellon,
+            'nombrePabellon': aula.pabellon.nombrePabellon  # Acceso al nombre del pabellón
+        }
+        aulas_json.append(aula_dict)
+    return aulas_json
 
 def devolver_aula(nombre: str, db:Session):
     aula = db.query(Aula_M).filter(Aula_M.nombreAula == nombre).first()
+    if aula:
+        pabellon = db.query(Pabellon_M).filter(Pabellon_M.idPabellon == aula.idPabellon).first()
+        # Asociar el objeto de pabellón al objeto de aula
+        aula.pabellon = pabellon
     return aula
 
 def actualizar_aula(nombre: str, aula: AulaActualizar, db:Session):
