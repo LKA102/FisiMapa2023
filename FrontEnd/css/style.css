@@ -64,18 +64,19 @@ footer {
     margin: auto;
     display:grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap:50px;
-    padding: 45px 0px;
+    grid-gap:20px; /* Reduccion espacio entre columnas*/
+    padding: 30px 0px; /* Reducción el padding superior e inferior */
 }
 .pie-de-pagina .grupo-1 .box figure{
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .pie-de-pagina .grupo-1 .box figure img{
-    width: 250px;
+    width: 150px; /* Reduzco el tamaño de la imagen */
+    height: auto; /* Ajusto la altura automáticamente */
 }
 .pie-de-pagina .grupo-1 .box h2{
     color: #fff;
