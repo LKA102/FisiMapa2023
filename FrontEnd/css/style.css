@@ -140,10 +140,12 @@ footer {
 }
 
 .boton-encontrar-ruta, .boton-informacion{
+    background-color: #07243d;
+    color: #fff;
     margin-right: 10px;
-    height: 50px;
-    width: 100%;
-    font-weight: 700;
+    height: 70px;
+    width: 100px;
+    font-weight: 800;
     font-size: 15px;
     border-radius: 5px;
     transition: .1s;
