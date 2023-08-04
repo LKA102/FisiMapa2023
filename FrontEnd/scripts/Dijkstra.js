@@ -1,44 +1,44 @@
-class Node {
-    constructor(val, priority) {
+class Nodo {
+    constructor(val, prioridad) {
         this.val = val;
-        this.priority = priority;
+        this.prioridad = prioridad;
     }
 }
 
-class PriorityQueue {
+class ColaDePrioridad {
     constructor() {
-        this.values = [];
+        this.valores = [];
     }
-    enqueue(val, priority) {
-        let newNode = new Node(val, priority);
-        this.values.push(newNode);
+    encolar(val, prioridad) {
+        let nuevoNodo = new Nodo(val, prioridad);
+        this.valores.push(nuevoNodo);
         this.bubbleUp();
     }
     bubbleUp() {
-        let idx = this.values.length - 1;
-        const element = this.values[idx];
+        let idx = this.valores.length - 1;
+        const element = this.valores[idx];
         while (idx > 0) {
-            let parentIdx = Math.floor((idx - 1) / 2);
-            let parent = this.values[parentIdx];
-            if (element.priority >= parent.priority) break;
-            this.values[parentIdx] = element;
-            this.values[idx] = parent;
-            idx = parentIdx;
+            let padreIdx = Math.floor((idx - 1) / 2);
+            let padre = this.valores[padreIdx];
+            if (element.prioridad >= padre.prioridad) break;
+            this.valores[padreIdx] = element;
+            this.valores[idx] = padre;
+            idx = padreIdx;
         }
     }
     dequeue() {
-        const min = this.values[0];
-        const end = this.values.pop();
-        if (this.values.length > 0) {
-            this.values[0] = end;
+        const min = this.valores[0];
+        const final = this.valores.pop();
+        if (this.valores.length > 0) {
+            this.valores[0] = final;
             this.sinkDown();
         }
         return min;
     }
     sinkDown() {
         let idx = 0;
-        const length = this.values.length;
-        const element = this.values[0];
+        const length = this.valores.length;
+        const element = this.valores[0];
         while (true) {
             let leftChildIdx = 2 * idx + 1;
             let rightChildIdx = 2 * idx + 2;
@@ -46,24 +46,24 @@ class PriorityQueue {
             let swap = null;
             
             if (leftChildIdx < length) {
-                leftChild = this.values[leftChildIdx];
-                if (leftChild.priority < element.priority) {
+                leftChild = this.valores[leftChildIdx];
+                if (leftChild.prioridad < element.prioridad) {
                     swap = leftChildIdx;
                 }
             }
             if (rightChildIdx < length) {
-                rightChild = this.values[rightChildIdx];
+                rightChild = this.valores[rightChildIdx];
                 if (
-                    (swap === null && rightChild.priority < element.priority) ||
-                    (swap !== null && rightChild.priority < leftChild.priority)
+                    (swap === null && rightChild.prioridad < element.prioridad) ||
+                    (swap !== null && rightChild.prioridad < leftChild.prioridad)
                     )
                     {
                         swap = rightChildIdx;
         }
       }
       if (swap === null) break;
-      this.values[idx] = this.values[swap];
-      this.values[swap] = element;
+      this.valores[idx] = this.valores[swap];
+      this.valores[swap] = element;
       idx = swap;
     }
   }
@@ -81,54 +81,54 @@ class WeightedGraph {
     this.adjacencyList[vertex1].push({ node: vertex2, weight });
     this.adjacencyList[vertex2].push({ node: vertex1, weight });
   }
-  Dijkstra(start, finish) {
-    const nodes = new PriorityQueue();
-    const distances = {};
-    const previous = {};
-    let path = []; //to return at end
+  Dijkstra(inicio, final) {
+    const nodos = new ColaDePrioridad();
+    const distancias = {};
+    const anterior = {};
+    let camino = []; //to return at end
     let smallest;
     //build up initial state
-    for (let vertex in this.adjacencyList) {
-      if (vertex === start) {
-        distances[vertex] = 0;
-        nodes.enqueue(vertex, 0);
+    for (let vertice in this.adjacencyList) {
+      if (vertice === inicio) {
+        distancias[vertice] = 0;
+        nodos.encolar(vertice, 0);
       } else {
-        distances[vertex] = Infinity;
-        nodes.enqueue(vertex, Infinity);
+        distancias[vertice] = Infinity;
+        nodos.encolar(vertice, Infinity);
       }
-      previous[vertex] = null;
+      anterior[vertice] = null;
     }
     // as long as there is something to visit
-    while (nodes.values.length) {
-      smallest = nodes.dequeue().val;
-      if (smallest === finish) {
+    while (nodos.valores.length) {
+      smallest = nodos.dequeue().val;
+      if (smallest === final) {
         //WE ARE DONE
         //BUILD UP PATH TO RETURN AT END
-        while (previous[smallest]) {
-          path.push(smallest);
-          smallest = previous[smallest];
+        while (anterior[smallest]) {
+          camino.push(smallest);
+          smallest = anterior[smallest];
         }
         break;
       }
-      if (smallest || distances[smallest] !== Infinity) {
+      if (smallest || distancias[smallest] !== Infinity) {
         for (let neighbor in this.adjacencyList[smallest]) {
           //find neighboring node
-          let nextNode = this.adjacencyList[smallest][neighbor];
+          let siguienteNodo = this.adjacencyList[smallest][neighbor];
           //calculate new distance to neighboring node
-          let candidate = distances[smallest] + nextNode.weight;
-          let nextNeighbor = nextNode.node;
-          if (candidate < distances[nextNeighbor]) {
+          let candidato = distancias[smallest] + siguienteNodo.weight;
+          let siguienteVecino = siguienteNodo.node;
+          if (candidato < distancias[siguienteVecino]) {
             //updating new smallest distance to neighbor
-            distances[nextNeighbor] = candidate;
+            distancias[siguienteVecino] = candidato;
             //updating previous - How we got to neighbor
-            previous[nextNeighbor] = smallest;
+            anterior[siguienteVecino] = smallest;
             //enqueue in priority queue with new priority
-            nodes.enqueue(nextNeighbor, candidate);
+            nodos.encolar(siguienteVecino, candidato);
           }
         }
       }
     }
-    return path.concat(smallest).reverse();
+    return camino.concat(smallest).reverse();
   }
 }
 
@@ -148,7 +148,7 @@ const coordenadas = {
   aulas_pabellon_nuevo_B: [489.61, 44.69],
   escaleras_pabellon_nuevo_B: [749.97, 44.69],
   sshh_pabellon_nuevo: [405.79, 85.8],
-  salida_patio: [288.93, 382.51],
+  salida_patio: [288.93, 514.24],
   losa_deportiva: [632.22, 409.3],
   capilla: [675.62, 489.77],
   aulas_pabellon_antiguo_A: [597.83, 587.52],
@@ -167,7 +167,7 @@ const coordenadas = {
   pasillo_j: [236.74, 566.67],
   pasillo_k: [236.74, 514.24],
   pasillo_l: [236.74, 439.75],
-  pasillo_m: [236.74, 383.28],
+  //pasillo_m: [236.74, 383.28],
   pasillo_n: [236.74, 326.8],
   pasillo_o: [236.74, 68.83],
   pasillo_p: [99.48, 68.83],
@@ -228,7 +228,7 @@ function recorridoDijsktra(){
   graph.addVertex("pasillo_j");
   graph.addVertex("pasillo_k");
   graph.addVertex("pasillo_l");
-  graph.addVertex("pasillo_m");
+  //graph.addVertex("pasillo_m");
   graph.addVertex("pasillo_n");
   graph.addVertex("pasillo_o");
   graph.addVertex("pasillo_p");
@@ -298,23 +298,26 @@ function recorridoDijsktra(){
   graph.addEdge("usgom", "pasillo_j", pesoNodos("usgom", "pasillo_j", "y"));
   
   graph.addEdge("pasillo_k", "escaleras_pabellon_antiguo_A", pesoNodos("pasillo_k", "escaleras_pabellon_antiguo_A", "x"));
-  graph.addEdge("pasillo_k", "pasillo_j", pesoNodos("pasillo_j", "pasillo_j", "y"));
-  graph.addEdge("pasillo_k", "pasillo_l", pesoNodos("pasillo_j", "pasillo_l", "y"));
+  graph.addEdge("pasillo_k", "pasillo_j", pesoNodos("pasillo_k", "pasillo_j", "y"));
+  graph.addEdge("pasillo_k", "pasillo_l", pesoNodos("pasillo_k", "pasillo_l", "y"));
+  graph.addEdge("pasillo_k", "salida_patio", pesoNodos("pasillo_k", "salida_patio", "x"));
   
   graph.addEdge("escaleras_pabellon_antiguo_A", "pasillo_k", pesoNodos("escaleras_pabellon_antiguo_A", "pasillo_k", "x"));
 
   graph.addEdge("pasillo_l", "sshh_pabellon_antiguo", pesoNodos("pasillo_l", "sshh_pabellon_antiguo", "x"));
   graph.addEdge("pasillo_l", "pasillo_k", pesoNodos("pasillo_l", "pasillo_k", "y"));
-  graph.addEdge("pasillo_l", "pasillo_m", pesoNodos("pasillo_l", "pasillo_m", "y"));
+  graph.addEdge("pasillo_l", "pasillo_n", pesoNodos("pasillo_l", "pasillo_n", "y"));
   
   graph.addEdge("sshh_pabellon_antiguo", "pasillo_l", pesoNodos("sshh_pabellon_antiguo", "pasillo_l", "x"));
   
+  /*
   graph.addEdge("pasillo_m", "salida_patio", pesoNodos("pasillo_m", "salida_patio", "x"));
   graph.addEdge("pasillo_m", "pasillo_l", pesoNodos("pasillo_m", "pasillo_l", "y"));
   graph.addEdge("pasillo_m", "pasillo_n", pesoNodos("pasillo_m", "pasillo_n", "y"));
+  */
   
   graph.addEdge("pasillo_n", "auditorio", pesoNodos("pasillo_n", "auditorio", "x"));
-  graph.addEdge("pasillo_n", "pasillo_m", pesoNodos("pasillo_n", "pasillo_m", "y"));
+  graph.addEdge("pasillo_n", "pasillo_l", pesoNodos("pasillo_n", "pasillo_l", "y"));
   graph.addEdge("pasillo_n", "pasillo_o", pesoNodos("pasillo_n", "pasillo_o", "y"));
   
   graph.addEdge("auditorio", "pasillo_n", pesoNodos("auditorio", "pasillo_n", "x"));
@@ -348,10 +351,10 @@ function recorridoDijsktra(){
   
   graph.addEdge("escaleras_pabellon_nuevo_B", "pasillo_s", pesoNodos("escaleras_pabellon_nuevo_B", "pasillo_s", "y"));
   
-  graph.addEdge("salida_patio", "pasillo_m", pesoNodos("salida_patio", "pasillo_m", "x"));
-  graph.addEdge("salida_patio", "patio_a", pesoNodos("salida_patio", "patio_a", "x"));
+  graph.addEdge("salida_patio", "pasillo_k", pesoNodos("salida_patio", "pasillo_k", "x"));
+  graph.addEdge("salida_patio", "patio_b", pesoNodos("salida_patio", "patio_b", "x"));
   
-  graph.addEdge("patio_a", "salida_patio", pesoNodos("patio_a", "salida_patio", "x"));
+  //graph.addEdge("patio_a", "salida_patio", pesoNodos("patio_a", "salida_patio", "x"));
   graph.addEdge("patio_a", "losa_deportiva", pesoNodos("patio_a", "losa_deportiva", "x"));
   graph.addEdge("patio_a", "patio_b", pesoNodos("patio_a", "patio_b", "y"));
   
@@ -367,13 +370,13 @@ function recorridoDijsktra(){
   const arreglo = graph.Dijkstra(inicio, final);
   
   const primerElementoEntrada = coordenadas.entrada[0];
-  console.log(coordenadas.entrada[1]); // Salida: 89.39
-  console.log(coordenadas.pasillo_a[1]);
-  console.log(coordenadas.entrada[1]-coordenadas.pasillo_a[1]);
+  //console.log(coordenadas.entrada[1]); // Salida: 89.39
+  //console.log(coordenadas.pasillo_a[1]);
+  //console.log(coordenadas.entrada[1]-coordenadas.pasillo_a[1]);
 
   const restaY = coordenadas.pasillo_a[1]-coordenadas.entrada[1];
-  console.log(restaY);
-  console.log(Math.abs(restaY))
+  //console.log(restaY);
+  //console.log(Math.abs(restaY))
 
   // Obtener el elemento SVG
   const svg = document.querySelector('svg');
@@ -387,7 +390,7 @@ function recorridoDijsktra(){
     const svg_lineas = document.querySelector('svg');
     const linea = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     
-    console.log(arreglo);
+    //console.log(arreglo);
     //console.log(coordenadas[arreglo[i-1]]);
     //console.log(coordenadas[arreglo[i-1]][0]+", "+coordenadas[arreglo[i-1]][1]);
 
@@ -395,11 +398,38 @@ function recorridoDijsktra(){
     linea.setAttribute('y1', coordenadas[arreglo[i-1]][1]);
     linea.setAttribute('x2', coordenadas[arreglo[i]][0]);
     linea.setAttribute('y2', coordenadas[arreglo[i]][1]);
-    linea.setAttribute('style', 'stroke: green; stroke-width: 3.5');
+    linea.setAttribute('style', 'stroke: green; stroke-width: 3.5; stroke-dasharray: 5, 5');
 
     // Agregar una clase a la línea para identificarla como parte del recorrido
     linea.classList.add('recorrido-linea');
-
     svg_lineas.appendChild(linea);
+  }
+
+  const iconoInicio = document.getElementById('icono-inicio');
+  const iconoLlegada = document.getElementById('icono-llegada');
+
+  if(arreglo.length>=3){
+    // Cambiar las coordenadas x e y
+    const x_inicio = coordenadas[arreglo[0]][0]-15; 
+    const y_inicio = coordenadas[arreglo[0]][1]-20;
+    iconoInicio.setAttribute('x', x_inicio.toString());
+    iconoInicio.setAttribute('y', y_inicio.toString());
+
+    const x_llegada = coordenadas[arreglo[arreglo.length-1]][0]-15; 
+    const y_llegada = coordenadas[arreglo[arreglo.length-1]][1]-30;
+
+    //console.log("Nodos recorridos: "+arreglo.length)
+    iconoLlegada.setAttribute('x', x_llegada.toString());
+    iconoLlegada.setAttribute('y', y_llegada.toString()); 
+  } else{
+    //console.log("es el mismo sitio xd");
+    x_unica = coordenadas[inicio][0];
+    y_unica = coordenadas[inicio][1];
+
+    iconoInicio.setAttribute('x', (x_unica-10).toString());
+    iconoInicio.setAttribute('y', (y_unica-10).toString());
+
+    iconoLlegada.setAttribute('x', x_unica.toString());
+    iconoLlegada.setAttribute('y', y_unica.toString()); 
   }
 }

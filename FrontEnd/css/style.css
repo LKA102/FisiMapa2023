@@ -47,7 +47,7 @@ main {
 
 #Capa_2{
     border: 1px solid red;
-    width: 50%;
+    width: 80%;
 }
 
 footer {
@@ -151,4 +151,5 @@ footer {
 .div-mapa{
     border: 1px solid red;
     width: 100%;
+    position: relative;
 }
