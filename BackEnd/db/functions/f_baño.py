@@ -20,7 +20,7 @@ def listar_baños(db: Session):
 def devolver_baño(nombre: str, db:Session):
     baño = db.query(Baño_M).filter(Baño_M.nombreBaño == nombre).first()
     if baño:
-        pabellon = db.query(Pabellon_M).filter(Pabellon_M.idPabellon == aula.idPabellon).first()
+        pabellon = db.query(Pabellon_M).filter(Pabellon_M.idPabellon == baño.idPabellon).first()
         # Asociar el objeto de pabellón al objeto de baño
         baño.pabellon = pabellon
     return baño
