@@ -43,6 +43,9 @@ header {
 
 main {
     padding: 20px;
+    background-image: url('../imagenes/img/Fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #Capa_2{
