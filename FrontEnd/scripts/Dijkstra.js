@@ -433,3 +433,15 @@ function recorridoDijsktra(){
     iconoLlegada.setAttribute('y', y_unica.toString()); 
   }
 }
+
+function borrarRecorrido() {
+  const lineasRecorrido = document.querySelectorAll('.recorrido-linea');
+  lineasRecorrido.forEach(linea => linea.remove());
+
+  const iconoInicio = document.getElementById('icono-inicio');
+  const iconoLlegada = document.getElementById('icono-llegada');
+  iconoInicio.setAttribute('x', '-100');
+  iconoInicio.setAttribute('y', '-100');
+  iconoLlegada.setAttribute('x', '-100');
+  iconoLlegada.setAttribute('y', '-100');
+}

@@ -159,7 +159,6 @@ footer {
     display: flex;
     flex-direction: column; /* Alinea los elementos verticalmente */
     align-items: flex-start;
-    padding: 20px 30px;
     box-sizing: border-box;
 }
 
@@ -170,6 +169,7 @@ footer {
 .cuadro-info {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
+    margin: 20px 30px;
     padding: 10px;
     width: 200px;
     max-height: 300px; /* Ajusta la altura máxima según tu diseño */

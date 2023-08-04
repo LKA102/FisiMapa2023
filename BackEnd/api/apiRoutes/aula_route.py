@@ -6,6 +6,7 @@ from db.functions.f_aula import crear_nueva_aula, listar_aulas, devolver_aula, e
 
 router = APIRouter()
 
+
 @router.post("/crear_aula")
 def crear_aula(aula: AulaCrear, db: Session = Depends(get_database)):
     nuevaAula = crear_nueva_aula(aula=aula, db=db)
