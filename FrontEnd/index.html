@@ -26,62 +26,62 @@
                 <div class="div-barra-lateral">
             
                   <div class="opciones-botones">
-                    <button class="boton-encontrar-ruta">Encontrar Ruta</button>
-                    <button class="boton-informacion">Información</button>
+                    <button id="btn-encontrar-ruta"  class="boton-encontrar-ruta">Encontrar Ruta</button>
+                    <button id="btn-informacion"  class="boton-informacion">Información</button>
                   </div>
                   <div class="encontrar-ruta">
-            
-                    <label for="inicio">Inicio:</label>
-                    <select id="inicio">
-                      <option value="entrada">Entrada</option>
-                      <option value="economia">Economia</option>
-                      <option value="dga">DGA</option>
-                      <option value="cerseu">Cerseu</option>
-                      <option value="direccion_escuela_cc">Direccion Escuela CC</option>
-                      <option value="usgom">USGOM</option>
-                      <option value="escaleras_pabellon_antiguo_A">Escaleras Pabellon Ant - A</option>
-                      <option value="sshh_pabellon_antiguo">SSHH Pabellon Ant</option>
-                      <option value="auditorio">Auditorio</option>
-                      <option value="aulas_pabellon_nuevo_A">Aulas Pabellon Nue - A</option>
-                      <option value="escaleras_pabellon_nuevo_A">Escaleras Pabellon Nue - A</option>
-                      <option value="aulas_pabellon_nuevo_B">Aulas Pabellon Nue - B</option>
-                      <option value="escaleras_pabellon_nuevo_B">Escaleras Pabellon Nue - B</option>
-                      <option value="sshh_pabellon_nuevo">SSHH Pabellon Nue</option>
-                      <option value="salida_patio">Salida Patio</option>
-                      <option value="losa_deportiva">Losa Deportiva</option>
-                      <option value="capilla">Capilla</option>
-                      <option value="escaleras_entrada">Escaleras Entrada</option>
-                      <option value="aulas_pabellon_antiguo_A">Aulas Pabellon Ant - A</option>
-                      <option value="aulas_pabellon_antiguo_B">Aulas Pabellon Ant - B</option>
-                      <option value="modulo_atencion_docente">Modulo Atención Docente</option>
-                    </select>
-            
-                    <label for="final">Destino:</label>
-                    <select id="final">
-                      <option value="entrada">Entrada</option>
-                      <option value="economia">Economia</option>
-                      <option value="dga">DGA</option>
-                      <option value="cerseu">Cerseu</option>
-                      <option value="direccion_escuela_cc">Direccion Escuela CC</option>
-                      <option value="usgom">USGOM</option>
-                      <option value="escaleras_pabellon_antiguo_A">Escaleras Pabellon Ant - A</option>
-                      <option value="sshh_pabellon_antiguo">SSHH Pabellon Ant</option>
-                      <option value="auditorio">Auditorio</option>
-                      <option value="aulas_pabellon_nuevo_A">Aulas Pabellon Nue - A</option>
-                      <option value="escaleras_pabellon_nuevo_A">Escaleras Pabellon Nue - A</option>
-                      <option value="aulas_pabellon_nuevo_B">Aulas Pabellon Nue - B</option>
-                      <option value="escaleras_pabellon_nuevo_B">Escaleras Pabellon Nue - B</option>
-                      <option value="sshh_pabellon_nuevo">SSHH Pabellon Nue</option>
-                      <option value="salida_patio">Salida Patio</option>
-                      <option value="losa_deportiva">Losa Deportiva</option>
-                      <option value="capilla">Capilla</option>
-                      <option value="escaleras_entrada">Escaleras Entrada</option>
-                      <option value="aulas_pabellon_antiguo_A">Aulas Pabellon Ant - A</option>
-                      <option value="aulas_pabellon_antiguo_B">Aulas Pabellon Ant - B</option>
-                      <option value="modulo_atencion_docente">Modulo Atención Docente</option>
-                    </select>
-                    <button onclick="recorridoDijsktra()">Buscar</button>
-            
+                    <div id = "espacio-encontrar-ruta">
+                      <label for="inicio">Inicio:</label>
+                      <select id="inicio">
+                        <option value="entrada">Entrada</option>
+                        <option value="economia">Economia</option>
+                        <option value="dga">DGA</option>
+                        <option value="cerseu">Cerseu</option>
+                        <option value="direccion_escuela_cc">Direccion Escuela CC</option>
+                        <option value="usgom">USGOM</option>
+                        <option value="escaleras_pabellon_antiguo_A">Escaleras Pabellon Ant - A</option>
+                        <option value="sshh_pabellon_antiguo">SSHH Pabellon Ant</option>
+                        <option value="auditorio">Auditorio</option>
+                        <option value="aulas_pabellon_nuevo_A">Aulas Pabellon Nue - A</option>
+                        <option value="escaleras_pabellon_nuevo_A">Escaleras Pabellon Nue - A</option>
+                        <option value="aulas_pabellon_nuevo_B">Aulas Pabellon Nue - B</option>
+                        <option value="escaleras_pabellon_nuevo_B">Escaleras Pabellon Nue - B</option>
+                        <option value="sshh_pabellon_nuevo">SSHH Pabellon Nue</option>
+                        <option value="salida_patio">Salida Patio</option>
+                        <option value="losa_deportiva">Losa Deportiva</option>
+                        <option value="capilla">Capilla</option>
+                        <option value="escaleras_entrada">Escaleras Entrada</option>
+                        <option value="aulas_pabellon_antiguo_A">Aulas Pabellon Ant - A</option>
+                        <option value="aulas_pabellon_antiguo_B">Aulas Pabellon Ant - B</option>
+                        <option value="modulo_atencion_docente">Modulo Atención Docente</option>
+                      </select>
+              
+                      <label for="final">Destino:</label>
+                      <select id="final">
+                        <option value="entrada">Entrada</option>
+                        <option value="economia">Economia</option>
+                        <option value="dga">DGA</option>
+                        <option value="cerseu">Cerseu</option>
+                        <option value="direccion_escuela_cc">Direccion Escuela CC</option>
+                        <option value="usgom">USGOM</option>
+                        <option value="escaleras_pabellon_antiguo_A">Escaleras Pabellon Ant - A</option>
+                        <option value="sshh_pabellon_antiguo">SSHH Pabellon Ant</option>
+                        <option value="auditorio">Auditorio</option>
+                        <option value="aulas_pabellon_nuevo_A">Aulas Pabellon Nue - A</option>
+                        <option value="escaleras_pabellon_nuevo_A">Escaleras Pabellon Nue - A</option>
+                        <option value="aulas_pabellon_nuevo_B">Aulas Pabellon Nue - B</option>
+                        <option value="escaleras_pabellon_nuevo_B">Escaleras Pabellon Nue - B</option>
+                        <option value="sshh_pabellon_nuevo">SSHH Pabellon Nue</option>
+                        <option value="salida_patio">Salida Patio</option>
+                        <option value="losa_deportiva">Losa Deportiva</option>
+                        <option value="capilla">Capilla</option>
+                        <option value="escaleras_entrada">Escaleras Entrada</option>
+                        <option value="aulas_pabellon_antiguo_A">Aulas Pabellon Ant - A</option>
+                        <option value="aulas_pabellon_antiguo_B">Aulas Pabellon Ant - B</option>
+                        <option value="modulo_atencion_docente">Modulo Atención Docente</option>
+                      </select>
+                      <button onclick="recorridoDijsktra()">Buscar</button>
+                    </div>
                   </div>
                 </div>
               
@@ -263,3 +263,4 @@
 
 <script src="scripts/Dijkstra.js"></script>
 <script src="scripts/Info.js"></script>
+<script src="scripts/Eventos.js"></script>
