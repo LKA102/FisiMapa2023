@@ -1,26 +1,45 @@
+
 .cls-1 {
   stroke-width: 1.62px;
 }
 
-.cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11 {
+.cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-40, .cls-41 {
   stroke: #1d1d1b;
   stroke-miterlimit: 10;
 }
 
-.cls-1, .cls-4, .cls-5, .cls-6, .cls-8, .cls-11 {
-  fill: #fff;
+.cls-1, .cls-4, .cls-5, .cls-6, .cls-8, .cls-11, .cls-40 {
+  fill: #F5F5F5;
 }
 
+/*1 es aulas nue pab B*/
+/*4 es capilla*/
+/*5 es DGA*/
+/*6 es pasillos*/
+/*8 es cerseu*/
+/*11 es auditorio*/
+/*13 14 15 16 17 23 24 25 26 27 28 29 30 31 32 33 letras 18 19 muchas letras*/
+.cls-4, .cls-5, .cls-8, .cls-11, .cls-40{
+  fill: #F2EAD3;
+}
+
+/*
+.cls-40{
+  fill: #0000ff;
+}
+*/
+
 .cls-2 {
-  fill: #3aaa35;
+  /*fill: #3aaa35;*/
+  fill: #C8E4B2 /*losa deportiva*/
 }
 
 .cls-3 {
   stroke-width: 1.17px;
 }
 
-.cls-3, .cls-7, .cls-10 {
-  fill: #706f6f;
+.cls-3, .cls-7, .cls-10, .cls-41 {
+  fill: #706f6f; /*escaleras*/
 }
 
 .cls-12 {
@@ -56,7 +75,7 @@
 }
 
 .cls-21 {
-  fill: #e30613;
+  fill: #ff0000; /*puntos de giro, rojo*/
 }
 
 .cls-22 {
@@ -108,7 +127,8 @@
 }
 
 .cls-9 {
-  fill: #ff9ffa;
+  /*fill: #ff9ffa;*/ /*sshh y vestidores*/
+  fill: #DFD7BF;
 }
 
 .cls-31 {
