@@ -7,53 +7,33 @@
 }
 
 /* SOLO PARA LAS LETRA*/
+/*
 .div-croquis {
     border: solid red 1px;
+    background-color: red;
     width: 100%;
     height: 700px;
     margin: auto;
 }
-
-.div-barra-lateral{
-    width: 500px;
-    /* border: solid red 1px; */
-    /*min-height: 100vh;*/
-    flex-shrink: 0;
-    display: flex;
-}
-
-
+*/
+/* HEADER */
 header {
     background-color: #07243d;
     padding: 20px;
     color: white;
     text-align: center;
 }
-
 .logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .logo-container img {
     max-width: 100px;
     margin-right: 10px;
 }
 
-main {
-    padding: 20px;
-    background-image: url('../imagenes/img/Fondo.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#Capa_2{
-    /* border: 1px solid red; */
-    width: 80%;
-    background-color: #fff;
-}
-
+/*  FOOTER */
 footer {
     text-align: center;
 }
@@ -124,14 +104,74 @@ footer {
     }
 }
 
-/* ERLY */
+
+
+
+
+
+
+
+
+
+
+
+
+/* A CAMBIAR DESDE AQUI */
+
+/* listo uwu */
+main {
+    padding: 20px;
+    background-image: url('../imagenes/img/Fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid red;
+}
+
 .principal{
+    display: grid;
+    gap: 10px;
+    grid-template: 
+        "div-barra-lateral div-mapa div-mapa div-mapa div-mapa";
+    /*
     display: flex;
     width: 100%;
     height: 100%;
     position: relative;
+    border: 1px solid red;
+    */
 }
 
+.div-barra-lateral {
+    grid-area: div-barra-lateral;
+    border: 1px solid red;
+}
+  
+.div-mapa {
+    grid-area: div-mapa;
+    border: 1px solid red;
+    padding: 10px auto;
+}
+  
+@media (max-width: 600px) {
+    .principal {
+        background-color: black;
+        grid-template-areas: 
+            "div-barra-lateral"
+            "div-mapa";
+        /*flex: 100%;*/ /* En pantallas pequeñas, ocuparán el 100% del ancho para estar uno debajo del otro */
+    }
+}
+
+
+#Capa_2{
+    /* border: 1px solid red; */
+    width: 80%;
+    background-color: #fff;
+}
+
+/* ERLY */
+
+/*
 .opciones-botones{
     display: flex;
     width: 100%;
