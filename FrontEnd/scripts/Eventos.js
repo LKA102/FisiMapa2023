@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const targetId = button.getAttribute("data-target");
         const targetRect = document.getElementById(targetId);
         if (targetRect) {
-          targetRect.style.fill = "#6A8599"; // Cambia el color a azul
+          targetRect.style.fill = "#E4A328"; // Cambia el color a azul
         }
       });
   
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", async function(event) {
         event.preventDefault();
 
-        const spanElement = button.previousElementSibling;
+        const spanElement = button.nextElementSibling;
         const nombreElemento = spanElement.textContent.trim();
         const entidad = button.getAttribute("data-entity"); // Por ejemplo: "oficina"
         const endpoint = `obtener-${entidad}`;

@@ -2,4 +2,3 @@
 **/__pycache__
 **/venv
 .vscode
-BackEnd/sql_database.db

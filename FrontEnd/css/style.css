@@ -110,12 +110,6 @@ footer {
 
 
 
-
-
-
-
-
-
 /* A CAMBIAR DESDE AQUI */
 
 /* listo uwu */
@@ -124,12 +118,12 @@ main {
     background-image: url('../imagenes/img/Fondo.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 .principal{
     display: grid;
-    gap: 10px;
+    gap: 20px;
     grid-template: 
         "div-barra-lateral div-mapa div-mapa div-mapa div-mapa";
     /*
@@ -143,18 +137,18 @@ main {
 
 .div-barra-lateral {
     grid-area: div-barra-lateral;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
+    align-items: center;
 }
   
 .div-mapa {
     grid-area: div-mapa;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     padding: 10px auto;
 }
   
 @media (max-width: 600px) {
     .principal {
-        background-color: black;
         grid-template-areas: 
             "div-barra-lateral"
             "div-mapa";
@@ -164,20 +158,17 @@ main {
 
 
 #Capa_2{
-    /* border: 1px solid red; */
+    /*border: 1px solid red;*/
     width: 100%;
     background-color: #fff;
 }
 
 /* ERLY */
 
-/*
-.opciones-botones{
-    display: flex;
-    width: 100%;
-    padding: 20px 30px;
-    display: flex;
-    padding-bottom: 40px;
+.encontrar-ruta{
+    display: block;
+    margin: 0px 10px;
+    align-items: center;
 }
 
 .boton-encontrar-ruta, .boton-informacion{
@@ -185,15 +176,18 @@ main {
     color: #fff;
     margin-right: 2px;
     height: 70px;
-    width: 100px;
+    width: 40%;
     font-weight: 800;
     font-size: 15px;
-    border-radius: 5px;
+    border-radius: 12px;
     transition: .1s;
     font-family: inherit;
     cursor: pointer;
+    display: block;
+    margin: 0px 20px;
+    padding: 0 5px;
 }
-
+/*
 .div-mapa{
     /* border: 1px solid red; */
     /*
@@ -202,9 +196,25 @@ main {
 }
 */
 
-button{
+#inicio, #final{
+    font-size: 20px;
+    width: 100%;
+    padding: 7px;
+    margin: 10px 0;
+    border-radius: 12px;
+}
+
+#buscar{
     background-color: #07243d;
     color: #fff;
+    width: 200px;
+    height: 50px;
+    margin: 5px 30%;
+    border-radius: 12px;
+    font-size: 20px;
+    padding: 7px 0;
+    margin-top: 10%;
+
 }
 
 
@@ -216,17 +226,25 @@ button{
     box-sizing: border-box;
 }
 
+.seccion-areas{
+    width: 95%;
+}
+
 .opciones-botones {
-    margin-bottom: 20px; /* Agrega espacio entre botones y cuadro-info */
+    display: flex;
+    width: 100%;
+    padding: 20px 30px;
+    align-items: center;
+    display: flex;
 }
 
 .cuadro-info {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
-    margin: 20px 30px;
+    margin: 10px 10px;
     padding: 10px;
-    width: 200px;
-    max-height: 300px; /* Ajusta la altura máxima según tu diseño */
+    width: 100%;
+    max-height: 600px; /* Ajusta la altura máxima según tu diseño */
     overflow: auto; /* Agrega scroll cuando el contenido excede la altura máxima */
 }
 
@@ -235,7 +253,8 @@ button{
 }
 
 .etiquetas span {
-    display: flex;
+   
+    font-size: 18px;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
@@ -243,12 +262,13 @@ button{
 }
 
 .boton-detalle {
-    background-color: #3498db;
+    background-color: #40A8C4;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
+    margin: 5px;
 }
 
 /*Ventana emergente de datos*/
@@ -258,8 +278,10 @@ button{
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background-color: white;
+    background-color: rgba(200,230,238,0.5);
     border: 1px solid #ccc;
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
 }
