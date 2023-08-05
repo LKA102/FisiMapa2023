@@ -28,19 +28,29 @@ class Respuesta{
     }
 
     id(){
-        return this.obtenerCampoGenerico['id']
+        return this.obtenerCampoGenerico('id')
     }
 
     nombre(){
         return this.obtenerCampoGenerico('nombre')
     }
 
-    capacidad(){
-        return this.object.capacidad
-    }
 
     descripcion(){
         return this.object.descripcion
+    }
+    
+
+
+}
+
+class RespuestaOficina extends Respuesta{
+    constructor(object){
+        super(object)
+    }
+
+    capacidad(){
+        return this.object.capacidad
     }
 
     estado(){
@@ -49,14 +59,6 @@ class Respuesta{
 
     piso(){
         return this.object.piso
-    }
-
-
-}
-
-class RespuestaOficina extends Respuesta{
-    constructor(object){
-        super(object)
     }
 
     horario_inicio_actividades(){
@@ -81,6 +83,92 @@ class RespuestaOficina extends Respuesta{
 
 }
 
+class RespuestaAula extends Respuesta{
+    constructor(object){
+        super(object)
+    }
+
+    capacidad(){
+        return this.object.capacidad
+    }
+
+    estado(){
+        return this.object.estado
+    }
+
+    piso(){
+        return this.object.piso
+    }
+
+}
+
+class RespuestaSalon extends Respuesta{
+    constructor(object){
+        super(object)
+    }
+
+    capacidad(){
+        return this.object.capacidad
+    }
+
+
+    piso(){
+        return this.object.piso
+    }
+
+}
+
+class RespuestaLocal extends Respuesta{
+    constructor(object){
+        super(object)
+    }
+
+}
+
+class RespuestaBaño extends Respuesta{
+    constructor(object){
+        super(object)
+    }
+
+    piso(){
+        return this.object.piso
+    }
+
+}
+
+class RespuestaLaboratorio extends Respuesta{
+    constructor(object){
+        super(object)
+    }
+
+    capacidad(){
+        return this.object.capacidad
+    }
+
+    estado(){
+        return this.object.estado
+    }
+
+    piso(){
+        return this.object.piso
+    }
+
+}
+
+class EntidadAPI {
+    static async obtenerPorNombre(nombre, endpoint, respuestaClase) {
+        let url = BaseURL + endpoint;
+        const respuesta = await fetch(url + `/${nombre}`);
+        return new respuestaClase(await respuesta.json());
+    }
+}
+
+// Agregar más subclases para otras entidades (baños, salones, etc.)
+
+
+/*
+
+
 class OficinaAPI{
     static async obtenerOficinas(){
         let url = BaseURL + "obtener-oficinas"
@@ -93,7 +181,7 @@ class OficinaAPI{
         return new Respuesta(await respuesta.json())
     }
 }
-
+/*
 console.log(OficinaAPI.obtenerOficinas().then(
    async response => {console.log(await response.json())})
 )
@@ -101,3 +189,4 @@ console.log(OficinaAPI.obtenerOficinas().then(
 OficinaAPI.obtenerOficinaPorNombre("CERSEU").then(data => {
     console.log(data.capacidad());
 });
+*/
