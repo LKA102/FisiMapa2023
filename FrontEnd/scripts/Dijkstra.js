@@ -1,3 +1,6 @@
+/* Algoritmo adaptado de:
+https://gist.github.com/Prottoy2938/66849e04b0bac459606059f5f9f3aa1a
+*/
 class Nodo {
   constructor(val, prioridad) {
       this.val = val;
